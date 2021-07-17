@@ -1,4 +1,4 @@
-const drawsNumber = 100000;
+const drawsNumber = 300000;
 const resultsNumber = 6; 
 const drawResults = new Array;
 let count = 0;
