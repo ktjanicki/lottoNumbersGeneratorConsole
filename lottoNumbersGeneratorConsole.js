@@ -1,5 +1,5 @@
-const drawsNumber = 300000;
-const resultsNumber = 6; 
+const drawsNumber = 1000000;
+const resultsNumber = 12; 
 const drawResults = new Array;
 let count = 0;
 
@@ -24,6 +24,15 @@ for(let i = 0; i < drawsNumber; i++){
   if(i === 10000) console.log('10 000 : ' + ((getEndTime - getStartTime)/1000).toFixed(5));
   if(i === 50000) console.log('50 000 : ' + ((getEndTime - getStartTime)/1000).toFixed(5));
   if(i === 99000) console.log('99 000 : ' + ((getEndTime - getStartTime)/1000).toFixed(5));
+  if(i === 199000) console.log('199 000 : ' + ((getEndTime - getStartTime)/1000).toFixed(5));
+  if(i === 299000) console.log('299 000 : ' + ((getEndTime - getStartTime)/1000).toFixed(5));
+  if(i === 399000) console.log('399 000 : ' + ((getEndTime - getStartTime)/1000).toFixed(5));
+  if(i === 499000) console.log('499 000 : ' + ((getEndTime - getStartTime)/1000).toFixed(5));
+  if(i === 599000) console.log('599 000 : ' + ((getEndTime - getStartTime)/1000).toFixed(5));
+  if(i === 699000) console.log('699 000 : ' + ((getEndTime - getStartTime)/1000).toFixed(5));
+  if(i === 799000) console.log('799 000 : ' + ((getEndTime - getStartTime)/1000).toFixed(5));
+  if(i === 899000) console.log('899 000 : ' + ((getEndTime - getStartTime)/1000).toFixed(5));
+  if(i === 999000) console.log('999 000 : ' + ((getEndTime - getStartTime)/1000).toFixed(5));
 
 }
 const finalResult = () => {
