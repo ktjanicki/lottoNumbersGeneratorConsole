@@ -1,5 +1,5 @@
 const drawsNumber = 1000000;
-const resultsNumber = 12; 
+const resultsNumber = 6; 
 const drawResults = new Array;
 let count = 0;
 
@@ -14,27 +14,6 @@ const drawNumbers = () => {
   return [...numbers].sort((a, b) => a - b);
 };
 
-for(let i = 0; i < drawsNumber; i++){
-  const getStartTime = new Date().getTime();
-  const draw = drawNumbers();
-  const matchNumbers = drawResults.filter(el => el.join(',').includes(draw.join(',')));
-  matchNumbers.length !== 0 ? matchNumbers.map(el => el[1]++) : drawResults.push([draw, 1]);
-  const getEndTime = new Date().getTime();
-  count++;
-  if(i === 10000) console.log('10 000 : ' + ((getEndTime - getStartTime)/1000).toFixed(5));
-  if(i === 50000) console.log('50 000 : ' + ((getEndTime - getStartTime)/1000).toFixed(5));
-  if(i === 99000) console.log('99 000 : ' + ((getEndTime - getStartTime)/1000).toFixed(5));
-  if(i === 199000) console.log('199 000 : ' + ((getEndTime - getStartTime)/1000).toFixed(5));
-  if(i === 299000) console.log('299 000 : ' + ((getEndTime - getStartTime)/1000).toFixed(5));
-  if(i === 399000) console.log('399 000 : ' + ((getEndTime - getStartTime)/1000).toFixed(5));
-  if(i === 499000) console.log('499 000 : ' + ((getEndTime - getStartTime)/1000).toFixed(5));
-  if(i === 599000) console.log('599 000 : ' + ((getEndTime - getStartTime)/1000).toFixed(5));
-  if(i === 699000) console.log('699 000 : ' + ((getEndTime - getStartTime)/1000).toFixed(5));
-  if(i === 799000) console.log('799 000 : ' + ((getEndTime - getStartTime)/1000).toFixed(5));
-  if(i === 899000) console.log('899 000 : ' + ((getEndTime - getStartTime)/1000).toFixed(5));
-  if(i === 999000) console.log('999 000 : ' + ((getEndTime - getStartTime)/1000).toFixed(5));
-
-}
 const finalResult = () => {
   const getStartTime = new Date().getTime();
 
@@ -43,11 +22,62 @@ const finalResult = () => {
     console.log(`${i + 1}: ${finalResult[i][0].join(', ')}: ${finalResult[i][1]} razy`);
   }
   const getEndTime = new Date().getTime();
-console.log(`finalResult time: ${((getEndTime - getStartTime)/1000).toFixed(5)}`)
+  console.log(`finalResult time: ${((getEndTime - getStartTime)/1000).toFixed(5)}\n`)
+}
+
+const partialResult = (number, time) => {
+  console.log(`Wyniki cząstkowe ${number} losowań. Aktualny czas pętli losowania: ${time}`);
+  finalResult();
+}
+
+for(let i = 0; i < drawsNumber; i++){
+  const getStartTime = new Date().getTime();
+  const draw = drawNumbers();
+  const matchNumbers = drawResults.filter(el => el.join(',').includes(draw.join(',')));
+  matchNumbers.length !== 0 ? matchNumbers.map(el => el[1]++) : drawResults.push([draw, 1]);
+  const loopTime = ((new Date().getTime() - getStartTime)/1000).toFixed(5);
+  count++;
+
+  switch (i){
+    case 1000:
+      partialResult(i, loopTime);
+      break;
+    case 5000:
+      partialResult(i, loopTime);
+      break;
+    case 99000:
+      partialResult(i, loopTime);
+      break;
+    case 199000:
+      partialResult(i, loopTime);
+      break;
+    case 299000:
+      partialResult(i, loopTime);
+      break;
+    case 399000:
+      partialResult(i, loopTime);
+      break;
+    case 499000:
+      partialResult(i, loopTime);
+      break;
+    case 599000:
+      partialResult(i, loopTime);
+      break;
+    case 699000:
+      partialResult(i, loopTime);
+      break;
+    case 799000:
+      partialResult(i, loopTime);
+      break;
+    case 899000:
+      partialResult(i, loopTime);
+      break;
+    case 999000:
+      partialResult(i, loopTime);
+      break;                                                                                                                                
+  }
 }
 
 finalResult()
 console.log(`total: ${drawResults.length}`);
 console.log(`Operations: ${count}`);
-
-// console.log(drawResults)
