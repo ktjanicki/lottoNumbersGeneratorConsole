@@ -1,5 +1,6 @@
 const drawsNumber = 1000000;
-const resultsNumber = 6; 
+const resultsNumber = 6;
+const showPartialDrawsList = [1000, 5000, 15000]; 
 const drawResults = new Array;
 let count = 0;
 
@@ -38,44 +39,7 @@ for(let i = 0; i < drawsNumber; i++){
   const loopTime = ((new Date().getTime() - getStartTime)/1000).toFixed(5);
   count++;
 
-  switch (i){
-    case 1000:
-      partialResult(i, loopTime);
-      break;
-    case 5000:
-      partialResult(i, loopTime);
-      break;
-    case 99000:
-      partialResult(i, loopTime);
-      break;
-    case 199000:
-      partialResult(i, loopTime);
-      break;
-    case 299000:
-      partialResult(i, loopTime);
-      break;
-    case 399000:
-      partialResult(i, loopTime);
-      break;
-    case 499000:
-      partialResult(i, loopTime);
-      break;
-    case 599000:
-      partialResult(i, loopTime);
-      break;
-    case 699000:
-      partialResult(i, loopTime);
-      break;
-    case 799000:
-      partialResult(i, loopTime);
-      break;
-    case 899000:
-      partialResult(i, loopTime);
-      break;
-    case 999000:
-      partialResult(i, loopTime);
-      break;                                                                                                                                
-  }
+  if (showPartialDrawsList.includes(i)) partialResult(i, loopTime);
 }
 
 finalResult()
