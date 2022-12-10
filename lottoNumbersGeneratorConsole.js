@@ -1,6 +1,6 @@
-const drawsNumber = 1000000;
+const drawsNumber = 100000;
 const resultNumber = 12;
-const showPartialDrawsList = [50000, 100000, 200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 990000]; 
+const showPartialDrawsList = [1000, 5000, 10000, 50000, 100000, 200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 990000]; 
 const drawResults = new Array;
 
 const drawNumbers = () => {
