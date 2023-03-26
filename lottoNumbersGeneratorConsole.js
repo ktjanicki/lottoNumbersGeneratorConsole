@@ -1,7 +1,8 @@
 const drawsNumber = 100000;
 const resultNumber = 12;
 const showPartialDrawsList = [1000, 5000, 10000, 50000, 100000, 200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 990000]; 
-const drawResults = new Array;
+const drawResults = new Array
+const programStartDate = new Date().getTime();
 
 const drawNumbers = () => {
   const numbers = new Set();
@@ -19,6 +20,7 @@ const finalResult = () => {
   for(let i = 0; i < resultNumber; i++) {
     console.log(`${i + 1}: ${finalResult[i][0].join(', ')}: ${finalResult[i][1]} razy`);
   }
+  console.log(`Czas wykoaia programu: ${((new Date().getTime() - programStartDate)/1000).toFixed(5)}`)
 }
 
 const partialResult = (number, time) => {
