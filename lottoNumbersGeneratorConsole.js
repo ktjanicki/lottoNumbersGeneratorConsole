@@ -6,12 +6,11 @@ const programStartDate = new Date().getTime();
 
 const drawNumbers = () => {
   const numbers = new Set();
-
   while (numbers.size < 6) {
-    numbers.add(parseInt(Math.random() * (50 - 1) + 1));
+    numbers.add(Math.floor(Math.random() * (49) + 1));
   }
 
-  return [...numbers].sort((a, b) => a - b);
+  return numbers.sort((a, b) => a - b).join(", ");
 };
 
 const finalResult = () => {
