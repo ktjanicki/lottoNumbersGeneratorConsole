@@ -1,42 +1,31 @@
-const drawsNumber = 100000;
-const resultNumber = 12;
-const showPartialDrawsList = [1000, 5000, 10000, 50000, 100000, 200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 990000]; 
-const drawResults = new Array
-const programStartDate = new Date().getTime();
+const lottoDraws = (numberOfDraws, numberOfResults) => {
+  const drawResults = new Object();
+  const everyOneProcent = Array.from({ length: 100 }, (_, i) => Math.floor((i + 1) * 0.01 * numberOfDraws));
+  const formatNumber = number => number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' '); 
 
-const drawNumbers = () => {
-  const numbers = new Set();
-  while (numbers.size < 6) {
-    numbers.add(Math.floor(Math.random() * (49) + 1));
+  const drawNumbers = () => {
+    const numbers = new Set();
+    while (numbers.size < 6) {
+      numbers.add(Math.floor(Math.random() * 49 + 1));
+    }
+
+    return [...numbers].sort((a, b) => a - b).join(', ');
+  };
+
+  for(let i = 0; i < numberOfDraws; i++){
+    const draw = drawNumbers();
+    drawResults[draw] ? drawResults[draw]++ : drawResults[draw] = 1;
+    if (everyOneProcent.includes(i + 1)) {
+      console.clear()
+      console.log(`\nSymulacja w toku: ${((i / numberOfDraws) * 100).toFixed()}%`);
+    }
   }
 
-  return numbers.sort((a, b) => a - b).join(", ");
-};
-
-const finalResult = () => {
-  const finalResult = drawResults.sort((a, b) => b[1] - a[1]);
-  
-  for(let i = 0; i < resultNumber; i++) {
-    console.log(`${i + 1}: ${finalResult[i][0].join(', ')}: ${finalResult[i][1]} razy`);
-  }
-  console.log(`Czas wykoaia programu: ${((new Date().getTime() - programStartDate)/1000).toFixed(5)}`)
+  const sortedNumbers = Object.keys(drawResults).sort((a, b) => drawResults[b] - drawResults[a]);
+    console.log(`\nWykonano ${formatNumber(numberOfDraws)} losowań w których padło ${formatNumber(Object.keys(drawResults).length)} unikalnych zestawów liczb.\nNajczęściej padały zestawy liczb:\n`);
+    sortedNumbers.slice(0, numberOfResults).forEach((numbers, i) => {
+      console.log(`${i + 1}: ${numbers}: ${drawResults[numbers]} razy.`)
+    });
 }
 
-const partialResult = (number, time) => {
-  console.log(`\nWyniki cząstkowe dla ${number} losowań. Aktualny czas pętli losowania: ${time}`);
-  finalResult();
-}
-
-for(let i = 0; i < drawsNumber; i++) {
-  const getStartTime = new Date().getTime();
-  const draw = drawNumbers();
-  const matchNumbers = drawResults.filter(el => el.join(',').includes(draw.join(',')));
-  matchNumbers.length !== 0 ? matchNumbers.map(el => el[1]++) : drawResults.push([draw, 1]);
-  const loopTime = ((new Date().getTime() - getStartTime)/1000).toFixed(5);
-
-  if (showPartialDrawsList.includes(i)) partialResult(i, loopTime);
-}
-
-console.log(`\nWynik końcowy po ${drawsNumber} losowań.`);
-finalResult();
-console.log(`W sumie padło ${drawResults.length} kombinacji liczb w ${drawsNumber} losowań.`);
+lottoDraws(5_000_000, 6);

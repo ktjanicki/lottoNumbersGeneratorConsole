@@ -1,12 +1,12 @@
 {
   "name": "lottoNumbersGeneratorConsole",
-  "version": "1.0.0",
-  "description": "",
+  "version": "2.0.0",
+  "description": "This is a program, or rather a simple script created for fun, that serves as a simulator of the Polish number game LOTTO. The program performs a specified number of draws, counts the numbers that appear most frequently, and then displays the declared number of the most frequently occurring numbers.",
   "main": "lottoNumbersGeneratorConsole.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Krzysztof Janicki",
+  "license": "GPL-2.0-only"
 }
