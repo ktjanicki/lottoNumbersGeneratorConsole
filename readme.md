@@ -2,7 +2,7 @@
 
 ### Run by:
 
-> node lottoNumbersGeneratorConsole.js <number of draws> <number of results>
+> node lottoNumbersGeneratorConsole.js (number of draws) (number of results)
 
 ### example:
 
