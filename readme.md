@@ -2,4 +2,10 @@
 
 ### Run by:
 
-> node lottoNumbersGeneratorConsole.js
+> node lottoNumbersGeneratorConsole.js <number of draws> <number of results>
+
+### example:
+
+> node lottoNumbersGeneratorConsole.js 500000 10
+
+- - NOTE: The input parameters are not required, but either both should be used or neither.
